@@ -24,6 +24,7 @@ import {
     AuthenticationSequenceInterface
 } from "../../../models";
 import { SignOnMethodsCore } from "./components/sign-on-methods-core";
+import {AILoginFlowProvider} from "./provider/ai-login-flow-provider";
 /**
  * Proptypes for the sign on methods component.
  */
@@ -92,18 +93,21 @@ export const SignOnMethods: FunctionComponent<SignOnMethodsPropsInterface> = (
     } = props;
 
     return (
-        <SignOnMethodsCore 
-            application={application}
-            appId={appId}
-            authenticationSequence={authenticationSequence}
-            clientId={clientId}
-            isLoading={isLoading}
-            onUpdate={onUpdate}
-            readOnly={readOnly}
-            isSystemApplication={isSystemApplication}
-            hiddenAuthenticators={hiddenAuthenticators}
+        <AILoginFlowProvider>
+            <SignOnMethodsCore 
+                application={application}
+                appId={appId}
+                authenticationSequence={authenticationSequence}
+                clientId={clientId}
+                isLoading={isLoading}
+                onUpdate={onUpdate}
+                readOnly={readOnly}
+                isSystemApplication={isSystemApplication}
+                hiddenAuthenticators={hiddenAuthenticators}
 
-        />
+            />
+        </AILoginFlowProvider>
+        
     );
 };
 
