@@ -25,24 +25,12 @@ import isEmpty from "lodash-es/isEmpty";
 import React, { FunctionComponent, ReactElement, useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Divider } from "semantic-ui-react";
-import { SignInMethodCustomization } from "../sign-in-method-customization";
-import { SignInMethodLanding } from "../sign-in-method-landing";
-import AppleLoginSequenceTemplate from "../templates/apple-login-sequence.json";
-import DefaultFlowConfigurationSequenceTemplate from "../templates/default-sequence.json";
-import EmailOTPSequenceTemplate from "../templates/email-otp-sequence.json";
-import FacebookLoginSequenceTemplate from "../templates/facebook-login-sequence.json";
-import GitHubLoginSequenceTemplate from "../templates/github-login-sequence.json";
-import GoogleLoginSequenceTemplate from "../templates/google-login-sequence.json";
-import MagicLinkSequenceTemplate from "../templates/magic-link-sequence.json";
-import MicrosoftLoginSequenceTemplate from "../templates/microsoft-login-sequence.json";
-import PasskeyLoginSequenceTemplate from "../templates/passkey-login-sequence.json";
-import SecondFactorEMAILOTPSequenceTemplate from "../templates/second-factor-email-otp-sequence.json";
-import SecondFactorSMSOTPSequenceTemplate from "../templates/second-factor-sms-otp-sequence.json";
-import SecondFactorTOTPSequenceTemplate from "../templates/second-factor-totp-sequence.json";
-import SmsOTPSequenceTemplate from "../templates/sms-otp-sequence.json";
-import AuthenticationFlowBuilder from "../../../../../admin.authentication-flow-builder.v1/components/authentication-flow-builder";
-import AuthenticationFlowProvider from "../../../../../admin.authentication-flow-builder.v1/providers/authentication-flow-provider";
-import { ConnectionsManagementUtils } from "../../../../../admin.connections.v1/utils/connection-utils";
+import AuthenticationFlowBuilder
+    from "../../../../../admin.authentication-flow-builder.v1/components/authentication-flow-builder";
+import AuthenticationFlowProvider
+    from "../../../../../admin.authentication-flow-builder.v1/providers/authentication-flow-provider";
+import { ConnectionsManagementUtils }
+    from "../../../../../admin.connections.v1/utils/connection-utils";
 import { AppConstants, EventPublisher, FeatureConfigInterface, history } from "../../../../../admin.core.v1";
 import {
     AuthenticatorCreateWizardFactory
@@ -50,8 +38,9 @@ import {
 import {
     IdentityProviderManagementConstants
 } from "../../../../../admin.identity-providers.v1/constants/identity-provider-management-constants";
-// eslint-disable-next-line max-len
-import MicrosoftIDPTemplate from "../../../../../admin.identity-providers.v1/data/identity-provider-templates/templates/microsoft/microsoft.json";
+import MicrosoftIDPTemplate
+    from
+    "../../../../../admin.identity-providers.v1/data/identity-provider-templates/templates/microsoft/microsoft.json";
 import {
     GenericAuthenticatorInterface,
     IdentityProviderTemplateInterface
@@ -69,11 +58,28 @@ import {
     additionalSpProperty
 } from "../../../../models";
 import { AdaptiveScriptUtils } from "../../../../utils/adaptive-script-utils";
+import { SignInMethodCustomization } from "../sign-in-method-customization";
+import { SignInMethodLanding } from "../sign-in-method-landing";
+import AppleLoginSequenceTemplate from "../templates/apple-login-sequence.json";
+import DefaultFlowConfigurationSequenceTemplate from "../templates/default-sequence.json";
+import EmailOTPSequenceTemplate from "../templates/email-otp-sequence.json";
+import FacebookLoginSequenceTemplate from "../templates/facebook-login-sequence.json";
+import GitHubLoginSequenceTemplate from "../templates/github-login-sequence.json";
+import GoogleLoginSequenceTemplate from "../templates/google-login-sequence.json";
+import MagicLinkSequenceTemplate from "../templates/magic-link-sequence.json";
+import MicrosoftLoginSequenceTemplate from "../templates/microsoft-login-sequence.json";
+import PasskeyLoginSequenceTemplate from "../templates/passkey-login-sequence.json";
+import SecondFactorEMAILOTPSequenceTemplate from "../templates/second-factor-email-otp-sequence.json";
+import SecondFactorSMSOTPSequenceTemplate from "../templates/second-factor-sms-otp-sequence.json";
+import SecondFactorTOTPSequenceTemplate from "../templates/second-factor-totp-sequence.json";
+import SmsOTPSequenceTemplate from "../templates/sms-otp-sequence.json";
+// eslint-disable-next-line max-len
 
 /**
  * Proptypes for the sign on methods component.
  */
-interface SignOnMethodsCorePropsInterface extends SBACInterface<FeatureConfigInterface>, IdentifiableComponentInterface {
+interface SignOnMethodsCorePropsInterface extends
+SBACInterface<FeatureConfigInterface>, IdentifiableComponentInterface {
     /**
      * Editing application.
      */
@@ -295,7 +301,7 @@ export const SignOnMethodsCore: FunctionComponent<SignOnMethodsCorePropsInterfac
         const isBasicStep: boolean = authenticationSequence.steps[0].options[0].authenticator
             === IdentityProviderManagementConstants.BASIC_AUTHENTICATOR;
         const isBasicScript: boolean = !authenticationSequence.script
-            || AdaptiveScriptUtils.isDefaultScript(authenticationSequence.script, authenticationSequence.steps?.length);
+            ||AdaptiveScriptUtils.isDefaultScript(authenticationSequence.script, authenticationSequence.steps?.length);
 
         return isBasicStep && isBasicScript && authenticationSequence.type === AuthenticationSequenceType.DEFAULT;
     };
