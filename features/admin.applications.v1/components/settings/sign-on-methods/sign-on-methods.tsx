@@ -24,7 +24,7 @@ import {
     AuthenticationSequenceInterface
 } from "../../../models";
 import { SignOnMethodsCore } from "./components/sign-on-methods-core";
-import {AILoginFlowProvider} from "./provider/ai-login-flow-provider";
+import AILoginFlowProvider from "./provider/ai-login-flow-provider";
 /**
  * Proptypes for the sign on methods component.
  */

@@ -17,7 +17,7 @@
  */
 
 import React from "react";
-import {AILoginFlowContext} from "../context/ai-login-flow-context";
+import AILoginFlowContext from "../context/ai-login-flow-context";
 
 export type AILoginFlowProviderProps = unknown;
 
@@ -28,12 +28,15 @@ export type AILoginFlowProviderProps = unknown;
  * @returns Sign On Mehtods provider.
  */
 
-const AILoginFlowProvider =(prps: React.PropsWithChildren<AILoginFlowProviderProps>): React.ReactElement=>{
+const AILoginFlowProvider =(props: React.PropsWithChildren<AILoginFlowProviderProps>): React.ReactElement=>{
 
     const {children} = props;
 
     return (
-        <AILoginFlowContext.Provider>
+        <AILoginFlowContext.Provider value={{
+            bannerState: undefined,
+            aiGeneratedAiLoginFlow: undefined
+        }}>
             {children}
         </AILoginFlowContext.Provider>
     );

@@ -17,9 +17,19 @@
  */
 
 import {Context, createContext} from "react";
+import {BannerState} from "../models/banner-state";
+import { AuthenticationSequenceInterface } from "../../../../models";
 
 export interface AILoginFlowContextInterface{
     // Add required properties here
+    /**
+     * Banner State of the AI login flow banner component
+     */
+    bannerState: BannerState;
+     /**
+     * State to hold the generated login flow.
+     */
+     aiGeneratedAiLoginFlow: AuthenticationSequenceInterface;
 }
 
 const AILoginFlowContext = createContext<AILoginFlowContextInterface>(undefined);
