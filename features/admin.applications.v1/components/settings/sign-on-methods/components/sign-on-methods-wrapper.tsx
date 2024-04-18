@@ -17,8 +17,9 @@
  */
 
 import { IdentifiableComponentInterface, SBACInterface } from "@wso2is/core/models";
-import React, { FunctionComponent, ReactElement } from "react";
+import React, { FunctionComponent, ReactElement, useEffect, useState } from "react";
 import { SignOnMethodsCore } from "./sign-on-methods-core";
+import useAILoginFlowContext from "../../../../../admin.ai.v1/hooks/use-ai-login-flow-context";
 import { FeatureConfigInterface } from "../../../../../admin.core.v1";
 import {
     ApplicationInterface,
@@ -91,11 +92,28 @@ export const SignOnMethodsWrapper: FunctionComponent<SignOnMethodsWrapperPropsIn
         [ "data-componentid" ]: componentId
     } = props;
 
+    /**
+     * Hook to get the generated login flow.
+     */
+    const { aiGeneratedLoginFlow } = useAILoginFlowContext();
+
+    /**
+     * State to hold the authentication sequence.
+     */
+    const [ authenticationSequenceState, setAuthenticationSequenceState ] = useState<AuthenticationSequenceInterface>(
+        authenticationSequence);
+
+    useEffect(() => {
+        if (aiGeneratedLoginFlow) {
+            setAuthenticationSequenceState(aiGeneratedLoginFlow);
+        }
+    }, [ aiGeneratedLoginFlow ]);
+
     return (
         <SignOnMethodsCore
             application={ application }
             appId={ appId }
-            authenticationSequence={ authenticationSequence }
+            authenticationSequence={ authenticationSequenceState }
             clientId={ clientId }
             isLoading={ isLoading }
             onUpdate={ onUpdate }

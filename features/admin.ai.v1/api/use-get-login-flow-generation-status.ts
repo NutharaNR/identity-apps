@@ -15,10 +15,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+import useAILoginFlowContext from "../hooks/use-ai-login-flow-context";
 
-export enum BannerState {
-    FULL = "banner-full",
-    INPUT = "banner-input",
-    COLLAPSED = "banner-collapsed",
-    NULL = "banner-null",
-}
+const useGetLoginFlowGenerationStatus = () => {
+    const { 
+        operationId,
+        setLoginFlowGenerationCompleted
+    } = useAILoginFlowContext();
+
+};

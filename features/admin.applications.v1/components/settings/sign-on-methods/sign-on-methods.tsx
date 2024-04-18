@@ -19,11 +19,13 @@
 import { IdentifiableComponentInterface, SBACInterface } from "@wso2is/core/models";
 import React, { FunctionComponent, ReactElement } from "react";
 import { SignOnMethodsWrapper } from "./components/sign-on-methods-wrapper";
+import AILoginFlowProvider from "../../../../admin.ai.v1/providers/ai-login-flow-provider";
 import { FeatureConfigInterface } from "../../../../admin.core.v1";
 import {
     ApplicationInterface,
     AuthenticationSequenceInterface
 } from "../../../models";
+
 
 /**
  * Proptypes for the sign on methods component.
@@ -94,18 +96,20 @@ export const SignOnMethods: FunctionComponent<SignOnMethodsPropsInterface> = (
     } = props;
 
     return (
-        <SignOnMethodsWrapper
-            application={ application }
-            appId={ appId }
-            authenticationSequence={ authenticationSequence }
-            clientId={ clientId }
-            isLoading={ isLoading }
-            onUpdate={ onUpdate }
-            readOnly={ readOnly }
-            isSystemApplication={ isSystemApplication }
-            hiddenAuthenticators={ hiddenAuthenticators }
-            data-componentid={ componentId }
-        />
+        <AILoginFlowProvider>
+            <SignOnMethodsWrapper
+                application={ application }
+                appId={ appId }
+                authenticationSequence={ authenticationSequence }
+                clientId={ clientId }
+                isLoading={ isLoading }
+                onUpdate={ onUpdate }
+                readOnly={ readOnly }
+                isSystemApplication={ isSystemApplication }
+                hiddenAuthenticators={ hiddenAuthenticators }
+                data-componentid={ componentId }
+            />
+        </AILoginFlowProvider>
     );
 };
 

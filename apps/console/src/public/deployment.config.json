@@ -337,7 +337,8 @@
             },
             "applications": {
                 "disabledFeatures": [
-                    "applications.loginFlow.legacyEditor"
+                    "applications.loginFlow.legacyEditor",
+                    "loginFlowAI"
                 ],
                 "enabled": true,
                 "scopes": {
