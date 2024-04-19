@@ -103,16 +103,16 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                 } }>
                 <div>
                     <Header as="h3">
-                        { t("ai:banner.full.heading") }
+                        { t("ai:aiLoginFlow.banner.full.heading") }
                     </Header>
                     <p>
-                        { t("ai:banner.full.subheading1") }<br />
-                        { t("ai:banner.full.subheading2") }
+                        { t("ai:aiLoginFlow.banner.full.subheading1") }<br />
+                        { t("ai:aiLoginFlow.banner.full.subheading2") }
                     </p>
                 </div>
                 <Button onClick={ handleTryLoginFlowButtonClick } color="secondary" variant="outlined">
                     <GenericIcon icon={ AIIcon } style={ { paddingRight: "5px" } }/>
-                    { t("ai:banner.full.button") }
+                    { t("ai:aiLoginFlow.banner.full.button") }
                 </Button>
             </div>
         </Segment>
@@ -152,7 +152,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                             top: "0px" } }>
                         <ChevronUpIcon />
                     </button>
-                    <Header as="h3">{ t("ai:banner.input.heading") }</Header>
+                    <Header as="h3">{ t("ai:aiLoginFlow.banner.input.heading") }</Header>
 
                 </div>
 
@@ -164,7 +164,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
 
                     } }>
                     <p>
-                        { t("ai:banner.input.subheading") }
+                        { t("ai:aiLoginFlow.banner.input.subheading") }
                         <DocumentationLink
                             link={ "develop.applications.editApplication.asgardeoTryitApplication.general.learnMore" }
                             isLinkRef={ true }>
@@ -185,7 +185,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                         } }>
                         <TextArea
                             name="loginFlowInput"
-                            placeholder={ t("ai:banner.input.placeholder") }
+                            placeholder={ t("ai:aiLoginFlow.banner.input.placeholder") }
                             style={ {
                                 border: "1px solid grey",
                                 boxSizing: "border-box",
@@ -204,7 +204,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                             variant="outlined"
                             style= { { alignItems:"center", height: "25%" } }>
                             <GenericIcon icon={ AIIcon } style={ { paddingRight: "5px" } }/>
-                            { t("ai:banner.input.button") }
+                            { t("ai:aiLoginFlow.banner.input.button") }
                         </Button>
                     </div>
                 </form>
@@ -247,7 +247,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                             top: "5px" } }>
                         <XMarkIcon />
                     </button>
-                    <Header as="h3">{ t("ai:banner.collapsed.heading") }</Header>
+                    <Header as="h3">{ t("ai:aiLoginFlow.banner.collapsed.heading") }</Header>
                 </div>
                 <div
                     style={ {
@@ -258,7 +258,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                     } }>
                     <div>
                         <p>
-                            { t("ai:banner.collapsed.subheading") }
+                            { t("ai:aiLoginFlow.banner.collapsed.subheading") }
                             <DocumentationLink
                                 link={
                                     "develop.applications.editApplication.asgardeoTryitApplication.general.learnMore"
@@ -272,7 +272,7 @@ const LoginFlowAIBanner: React.FunctionComponent = (): ReactElement => {
                     </div>
                     <Button onClick={ handleTryLoginFlowButtonClick } color="secondary" variant="outlined">
                         <GenericIcon icon={ AIIcon } style={ { paddingRight: "5px" } }/>
-                        { t("ai:banner.collapsed.button") }
+                        { t("ai:aiLoginFlow.banner.collapsed.button") }
                     </Button>
                 </div>
             </div>
